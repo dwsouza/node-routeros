@@ -221,6 +221,7 @@ export class Connector extends EventEmitter {
      * @returns {function}
      */
     private onError(err: any): void {
+        this.destroy();
         err = new RosException(err.errno, err);
         error(
             'Problem while trying to connect to %s. Error: %s',
@@ -228,7 +229,6 @@ export class Connector extends EventEmitter {
             err.message,
         );
         this.emit('error', err, this);
-        this.destroy();
     }
 
     /**
@@ -238,12 +238,12 @@ export class Connector extends EventEmitter {
      * @returns {function}
      */
     private onTimeout(): void {
+        this.destroy();
         this.emit(
             'timeout',
             new RosException('SOCKTMOUT', { seconds: this.timeout }),
             this,
         );
-        this.destroy();
     }
 
     /**
