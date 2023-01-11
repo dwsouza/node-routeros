@@ -17,6 +17,5 @@ temp
 package-lock.json
 
 # Make the package smaller - the source is on the github link
-src
 test
 .env*
