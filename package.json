@@ -6,9 +6,9 @@
     "types": "./dist/index",
     "scripts": {
         "prepublishOnly": "tsc",
-        "test": "rimraf ./dist && tsc && ENV=testing mocha",
-        "tsc:build": "rimraf ./dist && tsc",
-        "tsc:build:watch": "rimraf ./dist && tsc -w"
+        "test": "tsc && ENV=testing mocha",
+        "tsc:build": "tsc",
+        "tsc:build:watch": "tsc -w"
     },
     "repository": {
         "type": "git",
