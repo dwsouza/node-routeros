@@ -228,7 +228,7 @@ export class Connector extends EventEmitter {
             this.host,
             err.message,
         );
-        this.emit('error', err, this);
+        this.emit('timeout', err, this);
     }
 
     /**
